@@ -47,6 +47,40 @@ register_sidebars(1,
   'after_title' => '</div>',
 ));
 
+// ソーシャルボタン(Vertical)
+function SocialButtonVertical()
+{
+    ?>
+<ul>
+    <li>
+        <div class="fb-like" data-href="<?php the_permalink();
+    ?>" data-width="100" data-layout="button" data-action="like" data-show-faces="false" data-share="false">&nbsp;
+        </div>
+    </li>
+    <li>
+        <a href="https://twitter.com/share" data-count="horizontal" class="twitter-share-button" data-url="http://example.com<?php the_permalink();
+    ?>" data-text="<?php the_title();
+    ?>" data-lang="ja">&nbsp;</a>
+    </li>
+    <li>
+        <div class="g-plusone" data-annotation="none" data-size="medium" data-href="<?php the_permalink();
+    ?>">&nbsp;
+        </div>
+    </li>
+    <li>
+        <div class="wsbl_hatena_button"><a href="http://b.hatena.ne.jp/entry/<?php the_permalink();
+    ?>" class="hatena-bookmark-button" data-hatena-bookmark-title="<?php the_title();
+    ?>" data-hatena-bookmark-layout="standard" title="はてなブックマークに追加"> <img src="//b.hatena.ne.jp/images/entry-button/button-only@2x.png" alt="はてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+        </div>
+    </li>
+    <li>
+      <a data-pocket-label="pocket" data-pocket-count="none" class="pocket-btn" data-lang="en"></a>
+    </li>
+</ul>
+<?php
+
+}
+
 ///////////////////////////////////////
 //H2見出しを判別する正規表現を定数にする
 ///////////////////////////////////////
@@ -257,7 +291,7 @@ function show_avatar()
     if (isset($original_avatar) && $original_avatar !== '') {
         $avatar_image = '<img src="'.$original_avatar.'" alt="アバター">';
     } else {
-        $avatar_image = '<img src="'.get_template_directory_uri().'/lib/images/masman.png" alt="masman" width="100" height="100" />';
+        $avatar_image = '<img class="masman" src="'.get_template_directory_uri().'/images/masman.png" alt="masman" />';
     }
 
     $author_meta_name = get_the_author_meta('display_name');
@@ -265,7 +299,7 @@ function show_avatar()
     $disp_author_description = get_the_author_meta('description');
 
     $disp_avatar = <<<eof
-      <aside class="post-author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+      <div class="post-author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
         <div class="clearfix">
           <div class="post-author-img">
             <div class="inner">
@@ -277,7 +311,7 @@ function show_avatar()
             <p>{$disp_author_description}</p>
           </div>
         </div>
-      </aside>
+      </div>
 eof;
 
     echo $disp_avatar;

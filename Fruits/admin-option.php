@@ -10,4 +10,4 @@
 <p><a href="<?php bloginfo('url'); ?>/wp-admin/themes.php?page=functions.php&color=melon">メロン</a>&nbsp;&nbsp;<img src="<?php bloginfo('template_url'); ?>/images/admin/melon.png" /></p>
 <p><a href="<?php bloginfo('url'); ?>/wp-admin/themes.php?page=functions.php&color=blueberry">ブルーベリー</a>&nbsp;&nbsp;<img src="<?php bloginfo('template_url'); ?>/images/admin/blueberry.png" /></p>
 <p><a href="<?php bloginfo('url'); ?>/wp-admin/themes.php?page=functions.php&color=grape">グレープ</a>&nbsp;&nbsp;<img src="<?php bloginfo('template_url'); ?>/images/admin/grape.png" /></p>
-<p><a href="<?php bloginfo('url'); ?>/wp-admin/themes.php?page=functions.php&color=coconut">ココナッツ</a>&nbsp;&nbsp;<img src="<?php bloginfo('template_url'); ?>/images/admin/coconut.png" /></p>
+<p><a href="<?php bloginfo('url'); ?>/wp-admin/themes.php?page=functions.php&color=coconut">ココナッツ</a>&nbsp;&nbsp;<img src="<?php bloginfo('template_url'); ?>/images/admin/coconut.png" /></p>

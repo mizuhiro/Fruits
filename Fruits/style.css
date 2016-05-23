@@ -590,11 +590,29 @@ a.page-numbers,
 *	記事ページ	*
 ***********************************/
 
+.scl_btn li {
+  float: left;
+  margin-top: 22px;
+  margin-right: 11px;
+}
+
+.scl_btn ul:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.fb_iframe_widget span {
+  vertical-align: baseline !important;
+  margin-left: 0 !important;
+}
+
 
 /* タイトル */
 
 .single-title {
-  margin: 33px 0;
+  padding-top: 11px;
+  padding-bottom: 22px;
   line-height: 1.5;
   font-size: 30px;
 }
@@ -652,6 +670,56 @@ article blockquote {
 
 .single-tag {
   margin: 22px 0;
+}
+
+
+/*　投稿者 */
+
+.post-author:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.masman {
+  float: left;
+  margin-right: 11px;
+}
+
+.post-author-meta {
+  float: left;
+}
+
+
+/* 関連記事 */
+
+#related-entries {
+  padding-left: 22px;
+  margin-bottom: 33px;
+}
+
+p.related-entries {
+  padding: 22px 0;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.related-entry {
+  width: 22.088%;
+  margin-right: 2.912%;
+  float: left;
+}
+
+.related-entry-thumb img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 11px;
+}
+
+.related-entry-title {
+  width: 100%;
+  text-decoration: none;
+  font-size: 15px;
 }
 
 
@@ -798,6 +866,7 @@ p.logged-in-as {
 
 #sidebar {
   height: 100%;
+  margin-top: 22px;
   margin-right: 50px;
 }
 
@@ -806,7 +875,8 @@ p.logged-in-as {
 
 .widget {
   width: 300px;
-  margin: 22px auto;
+  margin: 0 auto;
+  margin-bottom: 22px;
   box-shadow: 0px 2px 2px 1px #e0e0e0;
 }
 
@@ -835,10 +905,6 @@ p.logged-in-as {
 #recentcomments li:last-of-type {
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-}
-
-.widget_search {
-  margin: 0 auto;
 }
 
 .tagcloud,
@@ -1037,6 +1103,10 @@ footer {
     margin-left: 11px;
     margin-right: 11px;
   }
+  /* SNSボタンのマージン調整 */
+  .scl_btn li {
+    margin-right: 5.5px;
+  }
   /* 記事テキスト幅調整 */
   .text-wrapper {
     padding-top: 3.5%;
@@ -1066,6 +1136,30 @@ footer {
   }
   .no {
     margin: 0 10px;
+  }
+  /* 関連記事のレイアウト変更 */
+  #related-entries {
+    margin: 0;
+  }
+  .related-entry {
+    width: auto;
+    float: none;
+    margin-bottom: 11px;
+  }
+  .related-entry:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  .related-entry-thumb img {
+    margin: 0;
+    width: 35%;
+    margin-right: 1.84%;
+    float: left;
+  }
+  .related-entry-title {
+    max-width: 62.36%;
+    float: left;
   }
   /* ページネーションのマージン調整 */
   .pagenation {
@@ -1306,11 +1400,6 @@ footer {
     width: auto;
   }
   /* サーチボックス */
-  .searchbox {
-    margin: 30px 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
   .searchbox input {
     height: 29px;
     border: solid 0px;
@@ -1416,11 +1505,6 @@ footer {
     width: auto;
   }
   /* サーチボックス */
-  .searchbox {
-    margin: 30px 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
   .searchbox input {
     height: 29px;
     border: solid 0px;
@@ -1473,6 +1557,15 @@ footer {
 /***********************************
 *	テーマカラー	*
 ***********************************/
+
+
+/* メインカラー(デフォルト) */
+
+.header-wraper,
+#menubtn,
+#searchbtn {
+  background-color: #f44336;
+}
 
 
 /* メインカラー(アップル) */
@@ -1535,6 +1628,23 @@ footer {
 .coconut #menubtn,
 .coconut #searchbtn {
   background-color: #ffffff;
+}
+
+
+/* メインカラーダーク(デフォルト) */
+
+.contents-inner .top-title a:hover {
+  color: #d32f2f;
+}
+
+.colorbar {
+  background-color: #d32f2f;
+}
+
+article h2,
+article h3,
+article h4 {
+  border-color: #d32f2f;
 }
 
 
@@ -1654,6 +1764,34 @@ footer {
 .coconut article h3,
 .coconut article h4 {
   border-color: #eeeeee;
+}
+
+
+/* アクセントカラー(デフォルト) */
+
+.move-page-top {
+  border-color: #69F0AE;
+}
+
+.move-page-top {
+  background-color: #69F0AE;
+}
+
+.category li a:hover,
+.category-inside a,
+.pankuzu li a span:hover,
+article a:hover,
+.tag li a:hover,
+.tagcloud a:hover,
+.reply a,
+.comment-respond input.submit,
+.pagenation a:hover,
+.tag li a:hover:before,
+.tagcloud a:hover:before,
+.widget li a:hover,
+#wp-calendar a:hover,
+#recentcomments li a:hover {
+  color: #00E676;
 }
 
 
