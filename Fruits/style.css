@@ -5,15 +5,16 @@ Author: 株式会社LAB
 Version: 1.1.0
 */
 
-@charset "UTF-8";
 
-/***********************************
+/******************************************************
 *	目次 *
 1.リセットcss
 2.ALL
 3.ヘッダー
   3-1.カラーバー
   3-2.ブログ名
+  3-3.パンくず
+  3-4.フローティングボタン
 4.メインコンテンツ
   4-1.コンテンツアウター
   4-2.コンテンツインナー
@@ -21,24 +22,60 @@ Version: 1.1.0
   4-4.コンテンツ内カテゴリ
   4-5.ポストタイム
   4-6.記事タイトル
-  4-7.本文抜粋
-  4-8.続きを読む
-  4-9.タグ
-  4-10.ページネーション
-5.サイドバー
-  5-1.ADS
-  5-2.人気の記事
-  5-3.SNSボタン
-6.フッター
-7.メディアクエリ
-  7-1.391px以下
-  7-2.660px以下
-  7-3.661px以上767px以下
-  7-4.768px以上1199px以下
-  7-5.1200px以上
-8.テーマカラー
-***********************************/
+  4-7.タグ
+  4-8.ページネーション
+5.記事ページ
+  5-1.ソーシャルボタン
+  5-2.タイトル
+  5-3.h2見出し
+  5-4.h3見出し
+  5-5.h4見出し
+  5-6.リンクタグ
+  5-7.引用文
+  5-8.記事内タグ
+  5-9.投稿者プロフィール
+  5-10.関連記事
+  5-11.コメント一覧
+  5-12.コメントフォーム
+6.404
+  6-1.検索から探す
+  6-2.カテゴリから探す
+7.サイドバー
+  7-1.ウィジェット
+  7-2.ADS
+8.フッター
+  8-1.コピーライト
+9.メディアクエリ
+  9-1.660px以下
+  9-2.661px以上767px以下
+  9-3.768px以上
+  9-4.1200px以上
+10.テーマカラー
+  10-1.メインカラー(デフォルト)
+  10-2.メインカラー(アップル)
+  10-3.メインカラー(オレンジ)
+  10-4.メインカラー(レモン)
+  10-5.メインカラー(メロン)
+  10-6.メインカラー(ブルーベリー)
+  10-7.メインカラー(グレープ)
+  10-8.メインカラー(ココナッツ)
+  10-9.メインカラーダーク(デフォルト)
+  10-10.メインカラーダーク(アップル)
+  10-11.メインカラーダーク(オレンジ)
+  10-12.メインカラーダーク(レモン)
+  10-13.メインカラーダーク(メロン)
+  10-14.メインカラーダーク(ブルーベリー)
+  10-15.メインカラーダーク(グレープ)
+  10-16.メインカラーダーク(ココナッツ)
+  10-17.アクセントカラー(デフォルト)
+  10-18.アクセントカラー(アップル、オレンジ、レモン、グレープ)
+  10-19.アクセントカラー(メロン)
+  10-20.アクセントカラー(ブルーベリー)
+  10-21.アクセントカラー(ココナッツ)
+  10-22.グレースケール
+********************************************************/
 
+@charset "UTF-8";
 
 /***********************************
 *	リセットcss	*
@@ -289,6 +326,9 @@ img.alignright {
   box-shadow: 0px 2px 6px 1px #bdbdbd;
 }
 
+
+/* カラーバー */
+
 .colorbar {
   width: 100%;
   height: 11px;
@@ -306,7 +346,6 @@ img.alignright {
 
 .blogname .text a {
   width: 100%;
-  transition: color 0.2s ease-in 0.1s;
 }
 
 .blogname .img {
@@ -317,7 +356,6 @@ img.alignright {
 
 .blogname .img a {
   width: 100%;
-  transition: color 0.2s ease-in 0.1s;
 }
 
 
@@ -346,6 +384,10 @@ img.alignright {
   font-size: 12px;
 }
 
+.pankuzu li a span {
+  transition: color 200ms ease;
+}
+
 .pankuzu i {
   margin-right: 2px;
 }
@@ -363,7 +405,7 @@ img.alignright {
 }
 
 
-/* ページトップボタン */
+/* フローティングボタン */
 
 .page-top {
   margin: 0;
@@ -392,6 +434,7 @@ img.alignright {
   text-align: center;
   box-shadow: 0px 7px 22px -4px rgba(0, 0, 0, 0.54);
   cursor: pointer;
+  transition: box-shadow 200ms ease;
 }
 
 .move-page-top:hover {
@@ -435,7 +478,7 @@ img.alignright {
   margin-right: 2px;
   margin-left: 2px;
   font-size: 15px;
-  transition: color 0.2s ease-in 0.1s;
+  transition: color 200ms ease;
 }
 
 
@@ -451,21 +494,29 @@ img.alignright {
   border-radius: 2px;
 }
 
+.thumbnail img {
+  transition: opacity 200ms ease;
+}
+
+.thumbnail a:hover img {
+  opacity: 0.7;
+}
+
 
 /* コンテンツ内カテゴリ */
 
 .category-inside {
   display: block;
   height: 20px;
-  line-height: 22px;
+  line-height: 20px;
 }
 
-.category-inside a {
+.category-inside li a {
   margin-left: 15px;
   padding: 5px 7px;
   border-radius: 2px;
   font-size: 15px;
-  transition: background-color 0.2s ease-in 0.1s;
+  transition: background-color 200ms ease;
 }
 
 
@@ -491,11 +542,8 @@ img.alignright {
 }
 
 .contents-inner .top-title a {
-  transition: color 0.2s ease-in 0.1s;
+  transition: color 200ms ease;
 }
-
-
-/* 記事テキスト */
 
 .text-wrapper {
   width: 52.9562%;
@@ -516,7 +564,7 @@ img.alignright {
   line-height: 22px;
   font-size: 12px;
   border-radius: 2px;
-  transition: color 0.2s ease-in 0.1s;
+  transition: color 200ms ease;
 }
 
 .tag li a {
@@ -529,7 +577,7 @@ img.alignright {
   margin-right: 2px;
   margin-left: 2px;
   font-size: 12px;
-  transition: color 0.2s ease-in 0.1s;
+  transition: color 200ms ease;
 }
 
 .tagcloud a:before {
@@ -537,7 +585,7 @@ img.alignright {
   font-family: FontAwesome;
   margin-right: 2px;
   margin-left: 2px;
-  transition: color 0.2s ease-in 0.1s;
+  transition: color 200ms ease;
 }
 
 .tag ul:after,
@@ -571,7 +619,7 @@ a.page-numbers,
   padding: 5.5px;
   line-height: 18px;
   font-size: 18px;
-  transition: color 0.2s ease-in 0.1s;
+  transition: color 200ms ease;
 }
 
 .pagenation:after {
@@ -590,9 +638,12 @@ a.page-numbers,
 *	記事ページ	*
 ***********************************/
 
+
+/* ソーシャルボタン */
+
 .scl_btn li {
   float: left;
-  margin-top: 22px;
+  margin-bottom: 12px;
   margin-right: 11px;
 }
 
@@ -607,12 +658,16 @@ a.page-numbers,
   margin-left: 0 !important;
 }
 
+.scl_btn li.hatena-btn {
+  margin-right: 8px;
+}
+
 
 /* タイトル */
 
 .single-title {
-  padding-top: 11px;
-  padding-bottom: 22px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   line-height: 1.5;
   font-size: 30px;
 }
@@ -623,7 +678,7 @@ a.page-numbers,
 }
 
 
-/* 見出し大 */
+/* h2見出し */
 
 article h2 {
   padding-left: 11px;
@@ -634,7 +689,7 @@ article h2 {
 }
 
 
-/* 見出し中 */
+/* h3見出し */
 
 article h3 {
   padding-left: 11px;
@@ -646,7 +701,7 @@ article h3 {
 }
 
 
-/* 見出し小 */
+/* h4見出し */
 
 article h4 {
   padding-left: 11px;
@@ -666,27 +721,48 @@ article blockquote {
 }
 
 
+/* リンクタグ */
+
+article a:hover {
+  text-decoration: underline;
+}
+
+
 /* 記事内タグ */
 
 .single-tag {
   margin: 22px 0;
+  margin-top: 44px;
 }
 
 
-/*　投稿者 */
+/*　投稿者プロフィール */
 
-.post-author:after {
+.author .label {
+  margin-bottom: 22px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.author .vcard {
+  margin-bottom: 11px;
+}
+
+.author .post-author:after {
   content: "";
   display: block;
   clear: both;
 }
 
-.masman {
+.author .masman {
   float: left;
-  margin-right: 11px;
+  width: 100px;
+  height: 100px;
+  margin-right: 22px;
+  border-radius: 100px;
 }
 
-.post-author-meta {
+.author .post-author-meta {
   float: left;
 }
 
@@ -710,16 +786,23 @@ p.related-entries {
   float: left;
 }
 
-.related-entry-thumb img {
+.related-entry-thumb a {
   width: 100%;
   height: auto;
-  margin-bottom: 11px;
+  transition: opacity 200ms ease;
 }
 
-.related-entry-title {
+.related-entry:hover .related-entry-thumb a {
+  opacity: 0.7;
+}
+
+.related-entry-title a {
+  display: block;
+  margin-top: 5.5px;
   width: 100%;
   text-decoration: none;
   font-size: 15px;
+  transition: color 200ms ease;
 }
 
 
@@ -787,7 +870,7 @@ span.says {
   padding: 5px 7px;
   border-radius: 2px;
   font-size: 15px;
-  transition: background-color 0.2s ease-in 0.1s;
+  transition: background-color 200ms ease;
 }
 
 .comment-awaiting-moderation {
@@ -851,12 +934,48 @@ p.form-submit {
   border-bottom: 0;
   border-radius: 2px;
   font-size: 15px;
-  transition: background-color 0.2s ease-in 0.1s;
+  transition: background-color 200ms ease;
 }
 
 p.logged-in-as {
   margin-bottom: 11px;
   padding: 5.5px;
+}
+
+p.logged-in-as a:hover {
+  text-decoration: underline;
+}
+
+
+/***********************************
+*	404	*
+***********************************/
+
+
+/* 検索から探す */
+
+.content-none .searchbox input {
+  width: 100%;
+  border-bottom: solid 2px;
+  border-radius: 0;
+}
+
+
+/* カテゴリから探す */
+
+.content-none .category-inside li {
+  list-style: none;
+  float: left;
+  margin-bottom: 11px;
+}
+
+.content-none .category-inside li a {
+  margin-left: 0;
+  margin-right: 22px;
+}
+
+.content-none .category-inside li a:hover {
+  text-decoration: none;
 }
 
 
@@ -898,7 +1017,7 @@ p.logged-in-as {
   border-top: 0;
   font-size: 15px;
   line-height: 1.5;
-  transition: background-color 0.2s ease-in 0.1s, color 0.2s ease-in 0.1s;
+  transition: background-color 200ms ease, color 200ms ease;
 }
 
 .widget li:last-of-type a,
@@ -939,7 +1058,7 @@ p.logged-in-as {
 
 #wp-calendar a {
   text-decoration: underline;
-  transition: color 0.2s ease-in 0.1s;
+  transition: color 200ms ease;
 }
 
 #recentcomments li {
@@ -951,7 +1070,7 @@ p.logged-in-as {
 #recentcomments li a {
   border: 0;
   box-shadow: 0px 0px 0px 0px white;
-  transition: color 0.2s ease-in 0.1s;
+  transition: color 200ms ease;
 }
 
 
@@ -996,7 +1115,7 @@ footer {
   .colorbar {
     height: 9px;
   }
-  /* ブログ名を左に寄せるフォントサイズ変更 */
+  /* ブログ名のフォントサイズ変更と左寄せ */
   .blogname .text {
     font-size: 24px;
     text-align: left;
@@ -1018,11 +1137,11 @@ footer {
     border: solid 0px;
     cursor: pointer;
     outline: none;
-    transition: color 0.2s ease-in 0.1s, background-color 0.2s ease-in 0.1s;
+    transition: background-color 200ms ease;
   }
   #menubtn i {
     font-size: 24px;
-    transition: color 0.2s ease-in 0.1s, background-color 0.2s ease-in 0.1s;
+    transition: background-color 200ms ease;
   }
   /* サーチボタン */
   #searchbtn {
@@ -1036,11 +1155,11 @@ footer {
     border: solid 0px;
     cursor: pointer;
     outline: none;
-    transition: color 0.2s ease-in 0.1s, background-color 0.2s ease-in 0.1s;
+    transition: background-color 200ms ease;
   }
   #searchbtn i {
     font-size: 24px;
-    transition: color 0.2s ease-in 0.1s, background-color 0.2s ease-in 0.1s;
+    transition: background-color 200ms ease;
   }
   /* カテゴリ縦並び */
   #category {
@@ -1055,9 +1174,9 @@ footer {
     display: block;
     margin: 0;
     padding: 0;
-    background-color: rgba(255, 255, 255, 1);
     border-radius: 2px;
     box-shadow: 0px 2px 2px 1px #e0e0e0;
+    background-color: rgba(255, 255, 255, 1);
   }
   .category li {
     margin: 0 11px;
@@ -1067,7 +1186,7 @@ footer {
     display: block;
     line-height: 20px;
     font-size: 15px;
-    transition: color 0.2s ease-in 0.1s, background-color 0.2s ease-in 0.1s;
+    transition: color 200ms ease;
   }
   /* サーチボックスレスポンシブデザイン */
   .widget_search form {
@@ -1106,6 +1225,9 @@ footer {
   /* SNSボタンのマージン調整 */
   .scl_btn li {
     margin-right: 5.5px;
+  }
+  .scl_btn li.hatena-btn {
+    margin-right: 2.5px;
   }
   /* 記事テキスト幅調整 */
   .text-wrapper {
@@ -1151,13 +1273,13 @@ footer {
     display: block;
     clear: both;
   }
-  .related-entry-thumb img {
+  .related-entry-thumb a {
     margin: 0;
     width: 35%;
     margin-right: 1.84%;
     float: left;
   }
-  .related-entry-title {
+  .related-entry-title a {
     max-width: 62.36%;
     float: left;
   }
@@ -1212,11 +1334,11 @@ footer {
     border: solid 0px;
     cursor: pointer;
     outline: none;
-    transition: color 0.2s ease-in 0.1s, background-color 0.2s ease-in 0.1s;
+    transition: background-color 200ms ease;
   }
   #menubtn i {
     font-size: 24px;
-    transition: color 0.2s ease-in 0.1s, background-color 0.2s ease-in 0.1s;
+    transition: background-color 200ms ease;
   }
   /* サーチボタン */
   #searchbtn {
@@ -1230,11 +1352,11 @@ footer {
     border: solid 0px;
     cursor: pointer;
     outline: none;
-    transition: color 0.2s ease-in 0.1s, background-color 0.2s ease-in 0.1s;
+    transition: background-color 200ms ease;
   }
   #searchbtn i {
     font-size: 24px;
-    transition: color 0.2s ease-in 0.1s, background-color 0.2s ease-in 0.1s;
+    transition: background-color 200ms ease;
   }
   /* カテゴリ縦並び */
   #category {
@@ -1249,9 +1371,9 @@ footer {
     display: block;
     margin: 0;
     padding: 0;
-    background-color: rgba(255, 255, 255, 1);
     border-radius: 2px;
     box-shadow: 0px 2px 2px 1px #e0e0e0;
+    background-color: rgba(255, 255, 255, 1);
   }
   .category li {
     margin: 0 11px;
@@ -1261,7 +1383,7 @@ footer {
     display: block;
     line-height: 20px;
     font-size: 15px;
-    transition: color 0.2s ease-in 0.1s, background-color 0.2s ease-in 0.1s;
+    transition: color 200ms ease;
   }
   /* サーチボックスレスポンシブデザイン */
   .widget_search form {
@@ -1388,7 +1510,7 @@ footer {
     line-height: 24px;
     margin-right: 22px;
     font-size: 15px;
-    transition: color 0.2s ease-in 0.1s, background-color 0.2s ease-in 0.1s;
+    transition: color 200ms ease, background-color 200ms ease;
   }
   .category ul:after {
     content: "";
@@ -1429,6 +1551,15 @@ footer {
   /* ページネーションのマージン調整 */
   .pagenation {
     margin-left: 28px;
+  }
+  /* サイドバーのマージン調整 */
+  #sidebar {
+    margin-right: 0;
+  }
+  .widget {
+    width: auto;
+    margin-left: 33px;
+    margin-right: 33px;
   }
   /* サムネイルと本文を横並びにする */
   .contents-inner:after {
@@ -1493,7 +1624,7 @@ footer {
     height: 22px;
     line-height: 24px;
     font-size: 15px;
-    transition: color 0.2s ease-in 0.1s, background-color 0.2s ease-in 0.1s;
+    transition: color 200ms ease, background-color 200ms ease;
   }
   .category ul:after {
     content: "";
@@ -1633,7 +1764,8 @@ footer {
 
 /* メインカラーダーク(デフォルト) */
 
-.contents-inner .top-title a:hover {
+.contents-inner .top-title a:hover,
+.related-entry:hover .related-entry-title a {
   color: #d32f2f;
 }
 
@@ -1650,7 +1782,8 @@ article h4 {
 
 /* メインカラーダーク(アップル) */
 
-.apple .contents-inner .top-title a:hover {
+.apple .contents-inner .top-title a:hover,
+.apple .related-entry:hover .related-entry-title a {
   color: #d32f2f;
 }
 
@@ -1667,7 +1800,8 @@ article h4 {
 
 /* メインカラーダーク(オレンジ) */
 
-.orange .contents-inner .top-title a:hover {
+.orange .contents-inner .top-title a:hover,
+.orange .related-entry:hover .related-entry-title a {
   color: #F57C00;
 }
 
@@ -1684,7 +1818,8 @@ article h4 {
 
 /* メインカラーダーク(レモン) */
 
-.lemon .contents-inner .top-title a:hover {
+.lemon .contents-inner .top-title a:hover,
+.lemon .related-entry:hover .related-entry-title a {
   color: #FBC02D;
 }
 
@@ -1701,7 +1836,8 @@ article h4 {
 
 /* メインカラーダーク(メロン) */
 
-.melon .contents-inner .top-title a:hover {
+.melon .contents-inner .top-title a:hover,
+.melon .related-entry:hover .related-entry-title a {
   color: #388E3C;
 }
 
@@ -1718,7 +1854,8 @@ article h4 {
 
 /* メインカラーダーク(ブルーベリー) */
 
-.blueberry .contents-inner .top-title a:hover {
+.blueberry .contents-inner .top-title a:hover,
+.blueberry .related-entry:hover .related-entry-title a {
   color: #303F9F;
 }
 
@@ -1735,7 +1872,8 @@ article h4 {
 
 /* メインカラーダーク(グレープ) */
 
-.grape .contents-inner .top-title a:hover {
+.grape .contents-inner .top-title a:hover,
+.grape .related-entry:hover .related-entry-title a {
   color: #512DA8;
 }
 
@@ -1752,7 +1890,8 @@ article h4 {
 
 /* メインカラーダーク(ココナッツ) */
 
-.coconut .contents-inner .top-title a:hover {
+.coconut .contents-inner .top-title a:hover,
+.coconut .related-entry:hover .related-entry-title a {
   color: #e0e0e0;
 }
 
@@ -1780,11 +1919,12 @@ article h4 {
 .category li a:hover,
 .category-inside a,
 .pankuzu li a span:hover,
-article a:hover,
+article a,
 .tag li a:hover,
 .tagcloud a:hover,
 .reply a,
 .comment-respond input.submit,
+p.logged-in-as a,
 .pagenation a:hover,
 .tag li a:hover:before,
 .tagcloud a:hover:before,
@@ -1814,13 +1954,14 @@ article a:hover,
 .apple .category li a:hover,
 .apple .category-inside a,
 .apple .pankuzu li a span:hover,
-.apple article a:hover,
+.apple article a,
 .apple .tag li a:hover,
 .apple .tagcloud a:hover,
 .apple .tag li a:hover:before,
 .apple .tagcloud a:hover:before,
 .apple .reply a,
 .apple .comment-respond input.submit,
+.apple p.logged-in-as a,
 .apple .pagenation a:hover,
 .apple .widget li a:hover,
 .apple #wp-calendar a:hover,
@@ -1828,13 +1969,14 @@ article a:hover,
 .orange .category li a:hover,
 .orange .category-inside a,
 .orange .pankuzu li a span:hover,
-.orange article a:hover,
+.orange article a,
 .orange .tag li a:hover,
 .orange .tagcloud a:hover,
 .orange .tag li a:hover:before,
 .orange .tagcloud a:hover:before,
 .orange .reply a,
 .orange .comment-respond input.submit,
+.orange p.logged-in-as a,
 .orange .pagenation a:hover,
 .orange .widget li a:hover,
 .orange #wp-calendar a:hover,
@@ -1842,7 +1984,7 @@ article a:hover,
 .lemon .category li a:hover,
 .lemon .category-inside a,
 .lemon .pankuzu li a span:hover,
-.lemon article a:hover,
+.lemon article a,
 .lemon .tag li a:hover,
 .lemon .tagcloud a:hover,
 .lemon .pagenation a:hover,
@@ -1850,17 +1992,19 @@ article a:hover,
 .lemon .tagcloud a:hover:before,
 .lemon .reply a,
 .lemon .comment-respond input.submit,
+.lemon p.logged-in-as a,
 .lemon .widget li a:hover,
 .lemon #wp-calendar a:hover,
 .lemon #recentcomments li a:hover,
 .grape .category li a:hover,
 .grape .category-inside a,
 .grape .pankuzu li a span:hover,
-.grape article a:hover,
+.grape article a,
 .grape .tag li a:hover,
 .grape .tagcloud a:hover,
 .grape .reply a,
 .grape .comment-respond input.submit,
+.grape p.logged-in-as a,
 .grape .pagenation a:hover,
 .grape .tag li a:hover:before,
 .grape .tagcloud a:hover:before,
@@ -1884,13 +2028,14 @@ article a:hover,
 .melon .category li a:hover,
 .melon .category-inside a,
 .melon .pankuzu li a span:hover,
-.melon article a:hover,
+.melon article a,
 .melon .tag li a:hover,
 .melon .tagcloud a:hover,
 .melon .tag li a:hover:before,
 .melon .tagcloud a:hover:before,
 .melon .reply a,
 .melon .comment-respond input.submit,
+.melon p.logged-in-as a,
 .melon .pagenation a:hover,
 .melon .widget li a:hover,
 .melon #wp-calendar a:hover,
@@ -1912,13 +2057,14 @@ article a:hover,
 .blueberry .category li a:hover,
 .blueberry .category-inside a,
 .blueberry .pankuzu li a span:hover,
-.blueberry article a:hover,
+.blueberry article a,
 .blueberry .tag li a:hover,
 .blueberry .tagcloud a:hover,
 .blueberry .tag li a:hover:before,
 .blueberry .tagcloud a:hover:before,
 .blueberry .reply a,
 .blueberry .comment-respond input.submit,
+.blueberry p.logged-in-as a,
 .blueberry .pagenation a:hover,
 .blueberry .widget li a:hover,
 .blueberry #wp-calendar a:hover,
@@ -1940,13 +2086,14 @@ article a:hover,
 .coconut .category li a:hover,
 .coconut .category-inside a,
 .coconut .pankuzu li a span:hover,
-.coconut article a:hover,
+.coconut article a,
 .coconut .tag li a:hover,
 .coconut .tagcloud a:hover,
 .coconut .tag li a:hover:before,
 .coconut .tagcloud a:hover:before,
 .coconut .reply a,
 .coconut .comment-respond input.submit,
+.coconut p.logged-in-as a,
 .coconut .pagenation a:hover,
 .coconut .widget li a:hover,
 .coconut #recentcomments li a:hover,
@@ -1955,13 +2102,11 @@ article a:hover,
 }
 
 
-/* グレー */
-
-body {
-  background-color: #fafafa;
-}
+/* グレースケール */
 
 .contents-outer,
+.thumbnail a,
+.related-entry-thumb a,
 .widgettitle,
 .widget,
 .tagcloud,
@@ -1972,23 +2117,41 @@ body {
   background-color: rgba(255, 255, 255, 1);
 }
 
+.blogname .text a,
+.lemon .blogname .text a,
+.lemon #menubtn i,
+.lemon #searchbtn i,
+.move-page-top,
+#menubtn i,
+#searchbtn i {
+  color: rgba(255, 255, 255, 1);
+}
+
+body {
+  background-color: #fafafa;
+}
+
+.comment-body {
+  border-color: #f5f5f5;
+}
+
 .category-inside li a:hover,
 .reply a:hover,
 .comment-respond input.submit:hover {
   background-color: #eeeeee;
 }
 
-.widget li,
-.widgettitle,
-.border {
-  border-color: #e0e0e0;
+input#author,
+input#email,
+textarea#comment,
+.content-none .searchbox input,
+.widgettitle {
+  border-color: #eeeeee;
 }
 
-.blogname .text a,
-.move-page-top,
-#menubtn i,
-#searchbtn i {
-  color: rgba(255, 255, 255, 1);
+.widget li,
+.border {
+  border-color: #e0e0e0;
 }
 
 #menubtn:hover,
@@ -1996,22 +2159,13 @@ body {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-.lemon #menubtn:hover,
-.lemon #searchbtn:hover,
-.coconut #menubtn:hover,
-.coconut #searchbtn:hover {
-  background-color: rgba(0, 0, 0, 0.12);
-}
-
 .top-title a,
 .pankuzu li span,
 .widgettitle,
-.lemon .blogname .text a,
 .coconut .blogname .text a,
-.lemon #menubtn i,
-.lemon #searchbtn i,
 .coconut #menubtn i,
 .coconut #searchbtn i,
+.related-entry-title a,
 #comment-area #comments,
 cite.fn,
 .comment-body p,
@@ -2021,22 +2175,11 @@ cite.fn,
 }
 
 .category li a,
-article a,
 .widget li a,
 .tagcloud a,
 .calendar_wrap,
 #wp-calendar a {
   color: rgba(0, 0, 0, 0.54);
-}
-
-input#author,
-input#email,
-textarea#comment {
-  border-color: #e0e0e0;
-}
-
-.comment-body {
-  border-color: #f5f5f5;
 }
 
 .pankuzu li a span,
@@ -2053,4 +2196,9 @@ article blockquote,
 a.page-numbers,
 .copyright p {
   color: rgba(0, 0, 0, 0.38);
+}
+
+.coconut #menubtn:hover,
+.coconut #searchbtn:hover {
+  background-color: rgba(0, 0, 0, 0.12);
 }
